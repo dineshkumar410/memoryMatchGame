@@ -1,0 +1,111 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f1f3f5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.game {
+  text-align: center;
+  width: 35%;
+}
+
+header > h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+header > button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  background-color: #e74c3c;
+  color: white;
+  border: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+header > button:hover {
+  background-color: #18bb51;
+  transform: scale(1.01);
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  margin-top: 2rem;
+}
+
+.card {
+  width: 80%;
+  padding-bottom: 100%;
+  background-color: #fff;
+  border: 2px solid #e74c3c;
+  cursor: pointer;
+  transform-style: preserve-3d;
+  align-self: center;
+  justify-self: center;
+  transition: transform 0.5s;
+  transform: rotateY(0deg);
+}
+
+.card.flipped {
+  transform: rotateY(180deg);
+}
+
+.content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  /* One side of the card is visible without below property */
+  backface-visibility: hidden;
+}
+
+.card .front {
+  background-color: #e74c3c;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+.card .back {
+  background-color: #fff;
+  color: #e74c3c;
+}
+
+@media (max-width: 340px) {
+    .game-board {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    button {
+      margin-top: 10px;
+    }
+  }
+
+@media (max-width: 600px) {
+  .game-board {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  button {
+    margin-top: 10px;
+  }
+}
